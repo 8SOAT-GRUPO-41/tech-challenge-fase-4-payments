@@ -1,1 +1,1 @@
-export * from './customer-routes'
+export * from './payment-routes'

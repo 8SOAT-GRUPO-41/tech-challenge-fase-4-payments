@@ -1,1 +1,1 @@
-export * from './customer-controller'
+export * from './payment-controller'

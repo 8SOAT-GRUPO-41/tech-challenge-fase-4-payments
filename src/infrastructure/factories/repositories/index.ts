@@ -1,1 +1,1 @@
-export * from './customer-repository-factory'
+export * from './payment-repository-factory'

@@ -3,8 +3,8 @@ import type { OpenAPIV3 } from 'openapi-types'
 const swaggerConfig: Omit<OpenAPIV3.Document, 'paths'> = {
   openapi: '3.0.0',
   info: {
-    title: 'Lanchonete G41 - Customers Service',
-    description: 'Lanchonete G41 API to manage customers',
+    title: 'Lanchonete G41 - Payments Service',
+    description: 'Lanchonete G41 API to manage payments',
     version: '0.1.0',
     contact: {
       name: 'Lanchonete G41',
@@ -18,7 +18,7 @@ const swaggerConfig: Omit<OpenAPIV3.Document, 'paths'> = {
     }
   ],
   tags: [
-    { name: 'Customers', description: 'Customers related end-points' },
+    { name: 'Payments', description: 'Payments related end-points' }
   ]
 }
 
