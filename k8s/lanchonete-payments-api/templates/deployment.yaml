@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lanchonete-api
+  name: lanchonete-payments-api
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: lanchonete-api
+      app: lanchonete-payments-api
   template:
     metadata:
       labels:
-        app: lanchonete-api
+        app: lanchonete-payments-api
     spec:
       containers:
-        - name: lanchonete-api
+        - name: lanchonete-payments-api
           image: {{ .Values.api.image.repository }}:{{ .Values.api.image.tag }}
           ports:
             - containerPort: {{ .Values.api.service.port }}
