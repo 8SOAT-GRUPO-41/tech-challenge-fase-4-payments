@@ -6,7 +6,7 @@ import type { HttpRoute } from '@/infrastructure/http/interfaces'
 export const paymentRoutes = [
   {
     method: 'post',
-    url: '/payments',
+    url: '/',
     handler: makeCreatePaymentController,
     schema: {
       tags: ['Payments'],
@@ -31,7 +31,7 @@ export const paymentRoutes = [
   },
   {
     method: 'post',
-    url: '/payments/webhook',
+    url: '/webhook',
     handler: makePaymentWebhookController,
     schema: {
       tags: ['Payments'],
