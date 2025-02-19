@@ -4,13 +4,13 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: lanchonete-payments-hpa
   labels:
-    app: lanchonete-payments
+    app: lanchonete-payments-api
     release: lanchonete
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: lanchonete-payments
+    name: lanchonete-payments-api
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
