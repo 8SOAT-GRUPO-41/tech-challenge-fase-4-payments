@@ -1,5 +1,9 @@
 # 8SOAT FIAP Tech Challenge | Grupo 41 | Payments API
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=8SOAT-GRUPO-41_tech-challenge-fase-4-customers&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=8SOAT-GRUPO-41_tech-challenge-fase-4-customers)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=8SOAT-GRUPO-41_tech-challenge-fase-4-customers&metric=coverage)](https://sonarcloud.io/summary/new_code?id=8SOAT-GRUPO-41_tech-challenge-fase-4-customers)
+
 ## Descrição do Projeto
 
 Este projeto, desenvolvido pelo Grupo 41, visa a criação de um sistema de gestão operacional para uma lanchonete. O sistema será responsável por gerenciar pedidos, produtos e clientes, proporcionando uma solução eficiente e organizada para as operações diárias da lanchonete.
@@ -24,4 +28,6 @@ docker-compose up
 
 ## Arquitetura
 
-![Arquitetura](diagrams/aws-architecture.png)
+Abaixo, está o diagrama da arquitetura do sistema, com destaque para o microserviço de payments.
+
+![Arquitetura](diagrams/architecture-fase-4-payments.png)
