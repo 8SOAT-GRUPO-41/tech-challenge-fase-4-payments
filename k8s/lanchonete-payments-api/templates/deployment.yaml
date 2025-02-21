@@ -44,3 +44,5 @@ spec:
               value: {{ .Values.api.env.MERCADO_PAGO_EXTERNAL_POS_ID }}
             - name: PAYMENT_WEBHOOK_URL
               value: {{ .Values.api.env.PAYMENT_WEBHOOK_URL }}
+            - name: ORDERS_SERVICE_URL
+              value: {{ .Values.api.env.ORDERS_SERVICE_URL }}
