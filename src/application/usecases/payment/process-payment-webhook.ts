@@ -1,4 +1,5 @@
-import type { PaymentGateway, PaymentRepository } from '@/application/ports'
+import type { OrdersGateway, PaymentGateway, PaymentRepository } from '@/application/ports'
+import { PaymentStatus } from '@/domain/enums'
 import { NotFoundError } from '@/domain/errors'
 
 type Input = {
@@ -8,7 +9,8 @@ type Input = {
 export class ProcessPaymentWebhook {
   constructor(
     private readonly paymentRepository: PaymentRepository,
-    private readonly paymentGateway: PaymentGateway
+    private readonly paymentGateway: PaymentGateway,
+    private readonly ordersGateway: OrdersGateway
   ) {}
 
   async execute({ gatewayResourceId }: Input): Promise<void> {
@@ -17,5 +19,8 @@ export class ProcessPaymentWebhook {
     if (!payment) throw new NotFoundError('Payment not found')
     payment.setStatus(paymentDetails.paymentStatus)
     await this.paymentRepository.update(payment)
+    if (paymentDetails.paymentStatus === PaymentStatus.PAID) {
+      await this.ordersGateway.setOrderAsPaid(paymentDetails.orderId)
+    }
   }
 }
