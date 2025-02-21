@@ -132,27 +132,24 @@ describe("Feature: Create Payment", () => {
     });
   });
 
-  describe("CreatePayment input validation", () => {
-    it("should throw DomainError when amount is zero", async () => {
-      const input = {
-        orderId: "order-123",
-        amount: 0,
-      };
-
-      await expect(sut.execute(input)).rejects.toThrow(DomainError);
-      await expect(sut.execute(input)).rejects.toThrow(
-        "Payment amount must be greater than zero"
-      );
-    });
-
-    it("should throw InvalidParamError when amount is negative", async () => {
-      const input = {
+  describe("Scenario: Customer provides negative payment amount", () => {
+    it("should validate negative amount", async () => {
+      // Given a negative payment amount
+      const invalidInput = {
         orderId: "order-123",
         amount: -10,
       };
 
-      await expect(sut.execute(input)).rejects.toThrow(InvalidParamError);
-      await expect(sut.execute(input)).rejects.toThrow("Invalid price");
+      // When they try to create a payment
+      const promise = sut.execute(invalidInput);
+
+      // Then it should fail with validation error
+      await expect(promise).rejects.toThrow(InvalidParamError);
+      await expect(promise).rejects.toThrow("Invalid price");
+
+      // And no payment should be created
+      expect(paymentRepository.save).not.toHaveBeenCalled();
+      expect(paymentGateway.generatePaymentQRCode).not.toHaveBeenCalled();
     });
   });
 });

@@ -29,4 +29,5 @@ module.exports = {
   silent: false,
   reporters: ["default"],
   setupFilesAfterEnv: ["jest-extended"],
+  testMatch: ["**/*.steps.ts", "**/*.spec.ts"],
 };
